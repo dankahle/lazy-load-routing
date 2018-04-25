@@ -1,5 +1,5 @@
 {
-  "name": "routing",
+  "name": "lazy-load-routing",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
