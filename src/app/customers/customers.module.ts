@@ -6,7 +6,9 @@ import {RouterModule, Routes} from "@angular/router";
 const routes: Routes = [
   {
     path: '',
-    component: CustomerListComponent
+    children: [
+      {path: 'customers', component: CustomerListComponent}
+    ]
   }
 ];
 
