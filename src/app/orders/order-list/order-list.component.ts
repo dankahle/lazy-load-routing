@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderListComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log('orders list const');
+
+  }
 
   ngOnInit() {
   }
