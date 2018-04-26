@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {NotFoundComponent} from "../shared/not-found/not-found.component";
 import {HomeComponent} from "../shared/home/home.component";
+import {InitGuard} from "../core/guards/init.guard";
+import {CoreModule} from "../core/core.module";
 
 const routes: Routes = [
   {
@@ -10,11 +12,13 @@ const routes: Routes = [
   },
   {
     path: 'pft',
-    loadChildren: 'app/customers/customers.module#CustomersModule'
+    loadChildren: 'app/customers/customers.module#CustomersModule',
+    canActivate: [InitGuard]
   },
   {
     path: 'ord',
-    loadChildren: 'app/orders/orders.module#OrdersModule'
+    loadChildren: 'app/orders/orders.module#OrdersModule',
+    canActivate: [InitGuard]
   },
   {
     path: '**',
@@ -24,7 +28,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {enableTracing: false})],
+  imports: [
+    RouterModule.forRoot(routes, {enableTracing: false}),
+    CoreModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
