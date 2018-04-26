@@ -1,12 +1,15 @@
-/*
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CustomerListComponent } from './customer-list/customer-list.component';
+import { CustomerListComponent } from '../customer-list/customer-list.component';
+import {MainComponent} from "../../shared/main/main.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: CustomerListComponent
+    component: MainComponent,
+    children: [
+      {path: 'customers', component: CustomerListComponent}
+    ]
   }
 ];
 
@@ -15,4 +18,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class CustomersRoutingModule { }
-*/

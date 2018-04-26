@@ -1,27 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-// import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import {RouterModule, Routes} from "@angular/router";
-import {HomeComponent} from "./common/home/home.component";
-import {AppCommonModule} from "./common/common.module";
-import {NotFoundComponent} from "./common/not-found/not-found.component";
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
+import {AppComponent} from "./app.component";
+import {AppRoutingModule} from "./app-routing/app-routing.module";
+import {SharedModule} from "./shared/shared.module";
 
-const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'pft',
-    loadChildren: 'app/customers/customers.module#CustomersModule'
-  },
-  {
-    path: '**',
-    component: NotFoundComponent
-    // pathMatch: 'full'
-  }
-];
 
 @NgModule({
   declarations: [
@@ -29,8 +11,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes, {enableTracing: false}),
-    AppCommonModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
