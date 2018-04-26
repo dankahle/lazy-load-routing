@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: 'app/customers/customers.module#CustomersModule'
   },
   {
+    path: 'ord',
+    loadChildren: 'app/orders/orders.module#OrdersModule'
+  },
+  {
     path: '**',
     component: NotFoundComponent
     // pathMatch: 'full'
@@ -20,7 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {enableTracing: false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
