@@ -8,7 +8,8 @@ import {CoreModule} from "../core/core.module";
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [InitGuard]
   },
   {
     path: 'pft',
